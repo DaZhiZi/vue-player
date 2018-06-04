@@ -1,32 +1,150 @@
 <template>
   <div class="recommend" ref="recommend">
-    <div class="recommend-content">
+    <scroll ref="scroll" class="recommend-content" :data="discList">
+      <div>
       <div v-if="recommends.length" class="slider-wrapper">
         <slider>
           <div v-for="item in recommends">
             <a href="item.linkUrl">
-              <img :src="item.picUrl">
+              <img @load="loadImage" :src="item.picUrl">
             </a>
           </div>
         </slider>
       </div>
+      <div class="recommend-list">
+        <h1 class="list-title">热门歌单推荐</h1>
+        <ul>
+          <li v-for="item in discList" class="item">
+            <div class="icon">
+              <img width="60" height="60" :src="item.imgurl">
+            </div>
+            <div class="text">
+              <h2 class="name" v-html="item.creator.name"></h2>
+              <p class="desc" v-html="item.dissname"></p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
+    </scroll>
   </div>
 </template>
 
 <script>
   import Slider from 'base/slider/slider'
+  import Scroll from 'base/scroll/scroll'
   import {getRecommend} from 'api/recommend'
   import {ERR_OK} from 'api/config'
 
   export default {
     data() {
       return {
-        recommends: []
+        recommends: [],
+        discList: [
+          {
+            imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
+            creator: {
+              name: '夏天来了'
+            },
+            dissname: '达人周末 | 高考完一定要去KTV唱的歌'
+          },
+          {
+            imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
+            creator: {
+              name: '夏天来了'
+            },
+            dissname: '达人周末 | 高考完一定要去KTV唱的歌'
+          },
+          {
+            imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
+            creator: {
+              name: '夏天来了'
+            },
+            dissname: '达人周末 | 高考完一定要去KTV唱的歌'
+          },
+          {
+            imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
+            creator: {
+              name: '夏天来了'
+            },
+            dissname: '达人周末 | 高考完一定要去KTV唱的歌'
+          },
+          {
+            imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
+            creator: {
+              name: '夏天来了'
+            },
+            dissname: '达人周末 | 高考完一定要去KTV唱的歌'
+          },
+          {
+            imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
+            creator: {
+              name: '夏天来了'
+            },
+            dissname: '达人周末 | 高考完一定要去KTV唱的歌'
+          },
+          {
+            imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
+            creator: {
+              name: '夏天来了'
+            },
+            dissname: '达人周末 | 高考完一定要去KTV唱的歌'
+          },
+          {
+            imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
+            creator: {
+              name: '夏天来了'
+            },
+            dissname: '达人周末 | 高考完一定要去KTV唱的歌'
+          },
+          {
+            imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
+            creator: {
+              name: '夏天来了'
+            },
+            dissname: '达人周末 | 高考完一定要去KTV唱的歌'
+          },
+          {
+            imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
+            creator: {
+              name: '夏天来了'
+            },
+            dissname: '达人周末 | 高考完一定要去KTV唱的歌'
+          },
+          {
+            imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
+            creator: {
+              name: '夏天来了'
+            },
+            dissname: '达人周末 | 高考完一定要去KTV唱的歌'
+          },
+          {
+            imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
+            creator: {
+              name: '夏天来了'
+            },
+            dissname: '达人周末 | 高考完一定要去KTV唱的歌'
+          },
+          {
+            imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
+            creator: {
+              name: '夏天来了'
+            },
+            dissname: '达人周末 | 高考完一定要去KTV唱的歌'
+          },
+          {
+            imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
+            creator: {
+              name: '夏天来了'
+            },
+            dissname: '达人周末 | 高考完一定要去KTV唱的歌'
+          },
+        ]
       }
     },
     created() {
       this._getRecommend()
+      this._getDiscList()
     },
     methods: {
       _getRecommend() {
@@ -34,18 +152,29 @@
           if(res.code === ERR_OK) {
             // console.log('res.data.slider', res.data.slider)
             this.recommends = res.data.slider
-            let EndOfSlider = res.data.slider[res.data.slider.length - 1]
-            console.log('EndOfSlider', EndOfSlider)
-            let BeginOfSlider = res.data.slider[0]
-            console.log('BeginOfSlider', BeginOfSlider)
-            // this.recommends.unshift(EndOfSlider)
-            // this.recommends.push(BeginOfSlider)
           }
         })
+      },
+      _getDiscList() {
+        getRecommend().then((res) => {
+          if(res.code === ERR_OK) {
+            console.log('res.data.list', res.data)
+            // this.discList = res.data.list
+          }
+        })
+      },
+      // 图片加载完成后，触发 BS refresh 重新计算高度
+      loadImage() {
+        // 确保只执行一次
+        if(!this.checkLoaded) {
+          this.$refs.scroll.refresh()
+          this.checkLoaded = true
+        }
       }
     },
     components: {
-      Slider
+      Slider,
+      Scroll
     }
   }
 </script>
@@ -53,6 +182,7 @@
 <style scoped lang="stylus">
   @import '~stylus/mixin.styl'
   @import '~stylus/variable.styl'
+
   .recommend
     position: fixed
     width: 100%

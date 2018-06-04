@@ -10,6 +10,7 @@
     "better-scroll": "^1.11.1",
     "jsonp": "^0.2.1",
     "vue": "^2.5.16",
+    "vue-lazyload": "^1.2.4",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

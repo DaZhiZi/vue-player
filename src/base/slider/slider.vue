@@ -60,6 +60,9 @@
         this.slider.refresh()
       })
     },
+    destroyed() {
+      clearTimeout(this.timer)
+    },
     methods: {
       _setSliderWidth(isResize) {
         this.children = this.$refs.sliderGroup.children
@@ -89,18 +92,23 @@
           scrollX: true,
           scrollY: false,
           momentum: false,
+          autoPlay: true,
           snap: {
-            loop: this.loop,
+            loop: true,
             threshold: 0.3,
+            speed: 1400,
           },
         })
 
         this.slider.on('scrollEnd', () => {
-          let pageIndex = this.slider.getCurrentPage().pageX
+          var pageIndex = this.slider.getCurrentPage().pageX
+          console.log('pageIndex', pageIndex)
           if(pageIndex == 4) {
             let interval = this.interval + 1
+            // console.log('interval', interval)
             setTimeout(() => {
-              this.slider.goToPage(0, 0, 400)
+              // 到最后一张时，切换为第一张
+              this.slider.next(400)
             }, interval)
           }
           // console.log('pageIndex', pageIndex)

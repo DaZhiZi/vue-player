@@ -37,7 +37,7 @@
   import Slider from 'base/slider/slider'
   import Scroll from 'base/scroll/scroll'
   import Loading from 'base/loading/loading'
-  import {getRecommend} from 'api/recommend'
+  import {getRecommend, getDiscList} from 'api/recommend'
   import {ERR_OK} from 'api/config'
 
   export default {
@@ -61,112 +61,8 @@
         })
       },
       _getDiscList() {
-        getRecommend().then((res) => {
-          if(res.code === ERR_OK) {
-            console.log('res.data.list', res.data)
-            let dataList = [{
-                        imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
-                        creator: {
-                          name: '夏天来了'
-                        },
-                        dissname: '达人周末 | 高考完一定要去KTV唱的歌'
-                      },
-                      {
-                        imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
-                        creator: {
-                          name: '夏天来了'
-                        },
-                        dissname: '达人周末 | 高考完一定要去KTV唱的歌'
-                      },
-                      {
-                        imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
-                        creator: {
-                          name: '夏天来了'
-                        },
-                        dissname: '达人周末 | 高考完一定要去KTV唱的歌'
-                      },
-                      {
-                        imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
-                        creator: {
-                          name: '夏天来了'
-                        },
-                        dissname: '达人周末 | 高考完一定要去KTV唱的歌'
-                      },
-                      {
-                        imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
-                        creator: {
-                          name: '夏天来了'
-                        },
-                        dissname: '达人周末 | 高考完一定要去KTV唱的歌'
-                      },
-                      {
-                        imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
-                        creator: {
-                          name: '夏天来了'
-                        },
-                        dissname: '达人周末 | 高考完一定要去KTV唱的歌'
-                      },
-                      {
-                        imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
-                        creator: {
-                          name: '夏天来了'
-                        },
-                        dissname: '达人周末 | 高考完一定要去KTV唱的歌'
-                      },
-                      {
-                        imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
-                        creator: {
-                          name: '夏天来了'
-                        },
-                        dissname: '达人周末 | 高考完一定要去KTV唱的歌'
-                      },
-                      {
-                        imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
-                        creator: {
-                          name: '夏天来了'
-                        },
-                        dissname: '达人周末 | 高考完一定要去KTV唱的歌'
-                      },
-                      {
-                        imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
-                        creator: {
-                          name: '夏天来了'
-                        },
-                        dissname: '达人周末 | 高考完一定要去KTV唱的歌'
-                      },
-                      {
-                        imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
-                        creator: {
-                          name: '夏天来了'
-                        },
-                        dissname: '达人周末 | 高考完一定要去KTV唱的歌'
-                      },
-                      {
-                        imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
-                        creator: {
-                          name: '夏天来了'
-                        },
-                        dissname: '达人周末 | 高考完一定要去KTV唱的歌'
-                      },
-                      {
-                        imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
-                        creator: {
-                          name: '夏天来了'
-                        },
-                        dissname: '达人周末 | 高考完一定要去KTV唱的歌'
-                      },
-                      {
-                        imgurl: 'http://p.qpic.cn/music_cover/ESQkDB4ohgibFpRT23xHVFQS0KeoYq1NiazLdLNPDRyNrVe8bpq7p5oQ/600?n=1',
-                        creator: {
-                          name: '夏天来了'
-                        },
-                        dissname: '达人周末 | 高考完一定要去KTV唱的歌'
-                      },]
-            // 模拟获取数据延迟, 显示 loading 效果
-            setTimeout(() => {
-              this.discList = dataList
-            }, 500)
-          }
+        getDiscList().then((res) => {
+          this.discList = res.data.list
         })
       },
       // 图片加载完成后，触发 BS refresh 重新计算高度
